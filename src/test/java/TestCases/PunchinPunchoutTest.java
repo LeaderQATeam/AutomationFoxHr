@@ -7,6 +7,8 @@ import com.google.gson.JsonObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.testng.Assert;
+
 
 public class PunchinPunchoutTest extends BaseTest {
 
@@ -40,18 +42,29 @@ public class PunchinPunchoutTest extends BaseTest {
     }
 
     @Test(description = "Punchin & Punchout")
-    public void punchin_punchout() {
-        //  page_Punchin =new PunchinPunchoutPage(driver);
+    public void punchin_punchout() throws InterruptedException {
+        String value_checkin ="";
+        String value_checkout ="";
+
         Boolean isPunchin = page_Punchin.punchinButton.isDisplayed();
         System.out.println("******"  +isPunchin);
         if(isPunchin){
             page_Punchin.clickPunchin();
+            Thread.sleep(2000);
+            value_checkin =page_Punchin.checkin.getText();
+            System.out.println("The punchin time : " +value_checkin);
+            Assert.assertNotNull(value_checkin);
             System.out.println("Punched in    Successfully");
+
             page_Punchin.clickPunchout();
-            System.out.println("Punched out   Successfully");
+            Thread.sleep(2000);
+            value_checkout =page_Punchin.checkout.getText();
+            System.out.println("The punchout time : " +value_checkout);
+            Assert.assertNotNull(value_checkout);
+            System.out.println("Punched out Successfully");
         }
         else {
-            System.out.println("Punchin    Failed");
+            System.out.println("Punchin Failed");
         }
 
     }

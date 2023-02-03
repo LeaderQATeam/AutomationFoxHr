@@ -25,14 +25,17 @@ public class PunchinPunchoutPage {
     @FindBy(xpath = "//button[contains(text(),\"Accept\")]")
     private WebElement acceptCookies;
 
-    @FindBy(xpath = "/html/body/app-root/app-content/div/div/app-home/div[2]/div[2]/app-virtual-attendance/div/div[2]/div/div[1]/div[1]/button")
+    //@FindBy(xpath = "/html/body/app-root/app-content/div/div/app-home/div[2]/div[2]/app-virtual-attendance/div/div[2]/div/div[1]/div[1]/button")
+    @FindBy(xpath = "//button[(text()='Punch In')]")
     public WebElement punchinButton;
 
-    @FindBy(xpath = "/html/body/app-root/app-content/div/div/app-home/div[2]/div[2]/app-virtual-attendance/div/div[2]/div/div[1]/div[2]/button")
+
+   @FindBy(xpath = "//button[(text()='Punch Out')]")
     public WebElement punchoutButton;
-
-
-
+  @FindBy(xpath = "//tbody/tr/td[4]")
+    public WebElement checkin;
+    @FindBy(xpath = " //tbody/tr/td[5]")
+    public WebElement checkout;
 
     public void clickPunchin()
 
