@@ -47,7 +47,7 @@ public class PunchinPunchoutTest extends BaseTest {
         String value_checkout ="";
 
         Boolean isPunchin = page_Punchin.punchinButton.isDisplayed();
-        System.out.println("******"  +isPunchin);
+        System.out.println("The system punched in"  +isPunchin);
         if(isPunchin){
             page_Punchin.clickPunchin();
             Thread.sleep(2000);
